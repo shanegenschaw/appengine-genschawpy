@@ -2,6 +2,8 @@
 requirejs.config({
 	urlArgs : 'v=' + new Date().getTime()
 });
-requirejs([], function () {
+requirejs(['utils/logger'], function (logger) {
+	var myLogger = logger.newLogger('main');
+	myLogger.debug('loaded');
 	return 'main';
 });
