@@ -2,7 +2,28 @@
 <html lang="en">
 <head>
 	<title>genschawpy</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link type="text/css" rel="stylesheet" href="/res/css/main.css" />
 </head>
-<body lang="en"><h1>Welcome to {{ appname }}!</h1></body>
+<body lang="en"><h1>Welcome to {{ appname }}!</h1>
+	
+	<div class="container-fluid" id="main-content">
+		<div class="row">
+			<div class="col-md-6">
+				<label for="pageURL">Page URL: </label><input type="text" id="pageURL" class="form-control" placeholder="Page URL:">
+			</div>
+			<div class="col-md-6">
+				<button class="btn btn-default">Analyze</button>
+			</div>
+		</div>
+		<div class="row">
+			<div id="results"></div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>
+</body>
 </html>
