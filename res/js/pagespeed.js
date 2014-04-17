@@ -1,7 +1,7 @@
 'use strict';
 define([ 'utils/logger', 'charts' ], function (logger, charts) {
 
-    var key = 'YOUR_KEY_HERE', url = 'https://www.googleapis.com/pagespeedonline/v1/runPagespeed?';
+    var key = 'AIzaSyDOzOh1VlLj8Ue7g25WHZDt7xAxgRilmgg', url = 'https://www.googleapis.com/pagespeedonline/v1/runPagespeed?';
 
     var myLogger = logger.newLogger('pagespeed');
 
@@ -24,7 +24,7 @@ define([ 'utils/logger', 'charts' ], function (logger, charts) {
         for ( var i in ruleResults) {
             var ruleResult = ruleResults[i];
             // Don't display lower-impact suggestions.
-            // if (ruleResult.ruleImpact < 3.0) continue;
+            if (ruleResult.ruleImpact <= 0) continue;
             results.push({
                 name : ruleResult.localizedRuleName,
                 impact : ruleResult.ruleImpact
@@ -34,7 +34,7 @@ define([ 'utils/logger', 'charts' ], function (logger, charts) {
         var ul = document.createElement('ul');
         for ( var i = 0, len = results.length; i < len; ++i) {
             var r = document.createElement('li');
-            r.innerHTML = results[i].name;
+            r.innerHTML = results[i].name + ' - ' + results[i].impact;
             ul.insertBefore(r, null);
         }
         if (ul.hasChildNodes()) {
